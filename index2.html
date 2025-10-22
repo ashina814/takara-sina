@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>宝くじチケット管理（番号管理専用）</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>宝くじチケット管理</h1>
+    <div class="top-actions">
+      <button id="adminToggle">管理モード切替</button>
+      <span id="adminIndicator" class="badge">一般表示</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="left">
+        <label>検索（所有者名）: <input id="searchInput" placeholder="例: Alice#1234" /></label>
+        <label><input id="onlyEmpty" type="checkbox" /> 空きチケットのみ</label>
+        <label>表示数: 
+          <select id="perPage">
+            <option>300</option><option>100</option><option>50</option><option>25</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="right">
+        <button id="exportJson">JSONエクスポート</button>
+        <button id="exportCsv">CSVエクスポート</button>
+        <input id="fileInput" type="file" accept=".json,.csv" />
+        <button id="resetAll">全クリア</button>
+      </div>
+    </section>
+
+    <section id="gridWrap">
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section id="detail" class="panel">
+      <h2>チケット詳細</h2>
+      <p id="detailInfo">チケットを選択してください。</p>
+
+      <div id="adminPanel" class="admin-only">
+        <label>所有者名: <input id="ownerInput" /></label>
+        <button id="assignBtn">割当</button>
+        <button id="unassignBtn">解除</button>
+      </div>
+
+      <div id="logs" class="logs"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>※状態はこのブラウザにのみ保存されます（localStorage使用）。</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
