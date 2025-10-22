@@ -1,0 +1,107 @@
+:root {
+  --accent: #2b6cb0;
+  --muted: #666;
+  --bg: #f6f8fb;
+}
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #111;
+  padding: 16px;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.top-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.badge {
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: #eee;
+  font-size: 0.9rem;
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 6px;
+}
+.ticket {
+  background: white;
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  user-select: none;
+}
+.ticket .num {
+  font-weight: 700;
+}
+.ticket.empty {
+  border: 2px dashed #ddd;
+}
+.ticket.taken {
+  border: 2px solid var(--accent);
+}
+.ticket.highlight {
+  outline: 3px solid gold;
+}
+.panel {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.admin-only {
+  display: none;
+}
+.admin-only.visible {
+  display: block;
+  margin-top: 8px;
+}
+.logs {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-height: 140px;
+  overflow: auto;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+}
+footer {
+  margin-top: 12px;
+  color: var(--muted);
+}
+#gridWrap {
+  max-height: 520px;
+  overflow: auto;
+  padding-right: 6px;
+}
+.ticket small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 6px;
+}
